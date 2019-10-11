@@ -1,0 +1,39 @@
+<!-- // 0 (left) Highlight outside two handles -->
+<span ng5SliderLeftOutSelElem class="ng5-slider-span ng5-slider-bar-wrapper ng5-slider-left-out-selection">
+  <span class="ng5-slider-span ng5-slider-bar"></span>
+</span>
+<!-- // 1 (right) Highlight outside two handles -->
+<span ng5SliderRightOutSelElem class="ng5-slider-span ng5-slider-bar-wrapper ng5-slider-right-out-selection">
+  <span class="ng5-slider-span ng5-slider-bar"></span>
+</span>
+<!-- // 2 The slider bar -->
+<span ng5SliderFullBarElem class="ng5-slider-span ng5-slider-bar-wrapper">
+  <span class="ng5-slider-span ng5-slider-bar"></span>
+</span>
+<!-- // 3 Highlight between two handles -->
+<span ng5SliderSelBarElem class="ng5-slider-span ng5-slider-bar-wrapper">
+  <span class="ng5-slider-span ng5-slider-bar ng5-slider-selection" [ngStyle]="barStyle"></span>
+</span>
+<!-- // 4 Left slider handle -->
+<span ng5SliderMinHElem class="ng5-slider-span ng5-slider-pointer ng5-slider-pointer-min" [ngStyle]=minPointerStyle></span>
+<!-- // 5 Right slider handle -->
+<span ng5SliderMaxHElem class="ng5-slider-span ng5-slider-pointer ng5-slider-pointer-max" [ngStyle]=maxPointerStyle></span>
+<!-- // 6 Floor label -->
+<span ng5SliderFlrLabElem class="ng5-slider-span ng5-slider-bubble ng5-slider-limit ng5-slider-floor"></span>
+<!-- // 7 Ceiling label -->
+<span ng5SliderCeilLabElem class="ng5-slider-span ng5-slider-bubble ng5-slider-limit ng5-slider-ceil"></span>
+<!-- // 8 Label above left slider handle -->
+<span ng5SliderMinLabElem class="ng5-slider-span ng5-slider-bubble ng5-slider-model-value"></span>
+<!-- // 9 Label above right slider handle -->
+<span ng5SliderMaxLabElem class="ng5-slider-span ng5-slider-bubble ng5-slider-model-high"></span>
+<!-- // 10 Range label when the slider handles are close ex. 15 - 17 -->
+<span ng5SliderCmbLabElem class="ng5-slider-span ng5-slider-bubble"></span>
+<!-- // 11 The ticks -->
+<span ng5SliderTicksElem [hidden]="!showTicks" class="ng5-slider-ticks">
+  <span *ngFor="let t of ticks" class="ng5-slider-tick" [ngClass]="{'ng5-slider-selected': t.selected}" [ngStyle]="t.style">
+    <ng5-slider-tooltip-wrapper [template]="tooltipTemplate" [tooltip]="t.tooltip" [placement]="t.tooltipPlacement"></ng5-slider-tooltip-wrapper>
+    <ng5-slider-tooltip-wrapper *ngIf="t.value != null" class="ng5-slider-span ng5-slider-tick-value"
+        [template]="tooltipTemplate" [tooltip]="t.valueTooltip" [placement]="t.valueTooltipPlacement" [content]="t.value"></ng5-slider-tooltip-wrapper>
+    <span *ngIf="t.legend != null" class="ng5-slider-span ng5-slider-tick-legend">{{ t.legend }}</span>
+  </span>
+</span>
