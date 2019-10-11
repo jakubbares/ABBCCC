@@ -11,16 +11,12 @@ import {MultiSelectModule} from 'primeng/multiselect';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {TableModule} from 'primeng/table';
 import {DropdownModule} from 'primeng/dropdown';
-import {ToastModule} from 'primeng/toast';
 import {ButtonModule} from 'primeng/button';
 import {AutoCompleteModule, MessagesModule} from 'primeng/primeng';
 import {PlayerSortPipe, SortMulStringPipe, SortPipe, SortStringPipe} from './pipes/sort.pipe';
 import {FilterPipe} from './pipes/filter.pipe';
-import {ChartService} from './services/chart.service';
+import {DataService} from './services/data.service';
 import {SharedModule} from './shared.module';
-import {DateSliderComponent} from './components/slider/date-slider.component';
-import {YearRangeSliderComponent} from './components/slider/year-range-slider.component';
-import {RangeSliderComponent} from './components/slider/range-slider.component';
 import {HttpClientModule} from '@angular/common/http';
 import {HeatmapChart} from './components/heatmap/heatmap.chart';
 import {LeafletDemoModule} from "./components/leaflet/leaflet-demo.module";
@@ -37,16 +33,12 @@ import {LeafletDemoModule} from "./components/leaflet/leaflet-demo.module";
     HttpClientModule,
     MultiSelectModule,
     DropdownModule,
-    ToastModule,
     TableModule,
     AutoCompleteModule,
     ButtonModule,
     routes
   ],
   declarations: [
-    DateSliderComponent,
-    YearRangeSliderComponent,
-    RangeSliderComponent,
     HeatmapChart,
     AppComponent,
     UserComponent,
@@ -58,7 +50,7 @@ import {LeafletDemoModule} from "./components/leaflet/leaflet-demo.module";
   ],
   providers: [
     AuthGuard,
-    ChartService,
+    DataService,
     AuthenticationService,
   ],
   bootstrap: [AppComponent]

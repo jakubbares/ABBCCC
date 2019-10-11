@@ -4,3 +4,9 @@ declare var module: {
 };
 
 declare var require: any;
+
+
+declare module "*.json" {
+  const value: any;
+  export default value;
+}

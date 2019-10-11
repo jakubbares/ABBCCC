@@ -3,9 +3,12 @@ import {Injectable, OnInit} from '@angular/core';
 import {environment} from '../../environments/environment';
 import {capitalizeField, sortByField, transformData} from '../shared/shared.functions';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
+import * as points from '../../assets/points.json';
+
+
 
 @Injectable()
-export class ChartService implements OnInit {
+export class DataService implements OnInit {
   private baseUrl = `${environment.apiUrl}/charts`;
   radarData: any;
   spiderData: any;
@@ -14,6 +17,11 @@ export class ChartService implements OnInit {
   ) {
   }
   ngOnInit() {
+  }
+
+  loadPoints() {
+    console.log(points)
+    return points;
   }
 
   getRadarStatsForPlayer(player_instatid: number, season: string) {

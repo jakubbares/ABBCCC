@@ -1,7 +1,7 @@
 import {AfterViewInit, Component, ElementRef, HostListener, Input, OnChanges, ViewChild} from '@angular/core';
 import simpleheat from './simpleheat';
 import {scale} from "../../shared/shared.functions";
-import {ChartService} from "../../services/chart.service";
+import {DataService} from "../../services/data.service";
 
 @Component({
   selector: 'eh-heatmap-chart',
@@ -26,7 +26,7 @@ export class HeatmapChart implements AfterViewInit, OnChanges {
 
 
   constructor(
-    private chartService: ChartService,
+    private chartService: DataService,
   ) {
     window['heat'] = this;
   }
