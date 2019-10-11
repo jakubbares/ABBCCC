@@ -10,16 +10,17 @@ import {Observable} from "rxjs";
 	selector: 'app-root',
 	template: `<map points="points"></map>`
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
 
   points: any[] = [];
-  map: any;
-  heat: any;
 	constructor(private http: HttpClient) {
+	}
+
+	ngOnInit() {
     this.getJSON().subscribe(data => {
       this.points = data;
     });
-	}
+  }
 
   public getJSON(): Observable<any> {
     return this.http.get("assets/points.json");

@@ -2,8 +2,7 @@ import {Component, OnInit, OnChanges, Input} from '@angular/core';
 declare let L;
 import '../../../node_modules/leaflet-routing-machine/dist/leaflet-routing-machine.js'
 import '../../dist/leaflet-heat.js'
-import {HttpClient} from "@angular/common/http";
-import {Observable} from "rxjs";
+
 
 
 @Component({
@@ -14,13 +13,14 @@ import {Observable} from "rxjs";
 })
 export class MapComponent implements OnInit, OnChanges {
 
-  @Input points: any[] = [];
+  @Input points: any[];
   map: any;
   heat: any;
 
 	ngOnChanges() {
     console.log(this.points);
-    this.map.setView([51.505, -0.09], 13);
+    const { CentrLatitude, CentrLongitude } = this.points[0];
+    this.map.setView([CentrLatitude, CentrLongitude], 13);
   }
 
 	ngOnInit() {
